@@ -1,0 +1,20 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: inventory
+ spec:
+   replicas: 5
+   selector:
+     matchLabels:
+       app: inventory
+   template:
+     metadata:
+       labels:
+         app: inventory
+     spec:
+       containers:
+       - name: inventory
+         image: jp.icr.io/newjobportal/myjobsportal
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 5000
